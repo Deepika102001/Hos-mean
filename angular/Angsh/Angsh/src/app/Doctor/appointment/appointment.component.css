@@ -1,74 +1,121 @@
 body{
-    background-image: url('https://images.unsplash.com/photo-1585435557343-3b092031a831?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bWVkaWNhbCUyMGJhY2tncm91bmR8ZW58MHx8MHx8fDA%3D'); /* Replace with your image path */
-    background-size: cover;
-   
-  
+  background-image: url('https://images.unsplash.com/photo-1585435557343-3b092031a831?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bWVkaWNhbCUyMGJhY2tncm91bmR8ZW58MHx8MHx8fDA%3D'); /* Replace with your image path */
+  background-size: cover;
+ 
+
+}
+.nav {
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #ddd;
   }
-  .nav {
-      padding: 10px;
-      background-color: #f8f9fa;
-      border-bottom: 1px solid #ddd;
-    }
-    
-    .nav-link {
-      color: #333;
-      font-weight: 500;
-      border-radius: 0;
-    }
-    
-    .nav-link.active {
-      color: #007bff;
-      border-bottom: 2px solid #007bff;
-    }
-    
-    /* Styling for search input */
-    .search-container {
-      margin-top: 20px;
-      margin-bottom: 20px;
-      justify-content: center;
-      display:flex;
-    }
-   
-    .search {
-      width: 20%;  
-      padding: 10px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-    
-    /* Styling for table */
-    .table-container {
-      overflow-x: auto;
-    }
-    
-    .medicine-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-    }
-    
-    .medicine-table th,
-    .medicine-table td {
-      padding: 10px;
-      border: 1px solid #ddd;
-    }
-    
-    .medicine-table th {
-      background-color: #f8f9fa;
-      font-weight: 500;
-      text-align: left;
-    }
-    
-    .add-button {
-      padding: 8px 15px;
-      border: none;
-      border-radius: 5px;
-      background-color: #007bff;
-      color: #fff;
-      cursor: pointer;
-      font-weight: 500;
-    }
-    
-    .add-button:hover {
-      background-color: #0056b3;
-    }
+  
+  .nav-link {
+    color: #333;
+    font-weight: 500;
+    border-radius: 0;
+  }
+  
+  .nav-link.active {
+    color: #007bff;
+    border-bottom: 2px solid #007bff;
+  }
+  
+  /* Styling for search input */
+  .search-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    justify-content: center;
+    display:flex;
+  }
+ 
+  .search {
+    width: 20%;  
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  /* Styling for table */
+  .table-container {
+    overflow-x: auto;
+  }
+  
+  .medicine-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .medicine-table th,
+  .medicine-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  .medicine-table th {
+    background-color: #f8f9fa;
+    font-weight: 500;
+    text-align: left;
+  }
+ 
+
+  /* Navigation Tabs Styles */
+  .nav-tabs {
+    background-color: #050607;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    height: 80px;
+  }
+  
+  .nav-tabs .nav-item {
+    margin-bottom: 91px;
+  }
+  
+  .nav-tabs .nav-link {
+    color: #fff;
+    text-align: center;
+    background-color: #000000;
+    border: 1px solid #007bff;
+    border-radius: 5px 5px 0 0;
+    font-weight: bold;
+    margin-left: 30px;
+    margin-block-end: 50px;
+  }
+  
+  .nav-tabs .nav-link:hover {
+    background-color: rgba(0, 123, 255, 0.8);
+    border-color: #007bff;
+  }
+  
+  .nav-tabs .nav-link.active {
+    color: #007bff;
+    background-color: #fff;
+    border-color: #007bff;
+    border-bottom-color: transparent;
+  }
+  
+
+  input {
+    padding: 8px;
+    margin-bottom: 15px;
+  }
+  
+  button {
+    background-color: #4242e2;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #4242e2;
+  }
+  
+  /* Link Styles */
+  a {
+    color: blue;
+  }
+  

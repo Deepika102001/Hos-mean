@@ -12,15 +12,23 @@
       <a class="nav-link" id="" href="">Logout</a>
   </li>
 </ul>
-<div *ngIf="userDetails">
-  <h2>User Profile</h2>
-  <div>
-    <p>Name: {{ userDetails.name }}</p>
-    <p>Email: {{ userDetails.email }}</p>
+<!-- User Profile -->
+<div *ngIf="userDetails" class="profile-container">
+  <h2 class="profile-heading">User Profile</h2>
+  <div class="profile-details">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <p>{{ userDetails.name }}</p>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <p>{{ userDetails.email }}</p>
+    </div>
     <!-- Add other user details as needed -->
   </div>
 </div>
 
-<div *ngIf="errorMessage">
+<!-- Error message -->
+<div *ngIf="errorMessage" class="error-message">
   <p>{{ errorMessage }}</p>
 </div>

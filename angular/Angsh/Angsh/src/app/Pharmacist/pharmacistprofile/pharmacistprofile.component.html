@@ -11,16 +11,22 @@
   </ul>
   
   
-  <div *ngIf="pharmacistDetails">
-    <h2>Pharmacist Profile</h2>
-    <div>
-      <p>Name: {{ pharmacistDetails.name }}</p>
-      <p>Email: {{ pharmacistDetails.email }}</p>
+  <div *ngIf="pharmacistDetails" class="profile-container">
+    <h2 style="text-align: center;">Pharmacist Profile</h2>
+    <div class="profile-details">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <p>{{ pharmacistDetails.name }}</p>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <p>{{ pharmacistDetails.email }}</p>
+      </div>
       <!-- Add other pharmacist details as needed -->
     </div>
   </div>
   
-  <div *ngIf="errorMessage">
+  <div *ngIf="errorMessage" class="error-message">
     <p>{{ errorMessage }}</p>
   </div>
   

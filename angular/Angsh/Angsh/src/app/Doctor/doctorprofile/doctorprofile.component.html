@@ -12,16 +12,24 @@
     <a class="nav-link" id="" href="">Logout</a>
   </li>
 </ul>
-
-<div *ngIf="errorMessage" class="error-message">
-  {{ errorMessage }}
-</div>
-
-<div *ngIf="!errorMessage" class="doctor-details-container">
-  <h2>Doctor Details</h2>
-  <div *ngIf="doctorDetails" class="doctor-details">
-    <p><strong>Name:</strong> {{ doctorDetails.name }}</p>
-    <p><strong>Email:</strong> {{ doctorDetails.email }}</p>
-    <!-- Display other doctor details as needed -->
+<!-- Doctor Profile -->
+<div *ngIf="doctorDetails" class="profile-container">
+  <h2 class="profile-heading">Doctor Profile</h2>
+  <div class="profile-details">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <p>{{ doctorDetails.name }}</p>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <p>{{ doctorDetails.email }}</p>
+    </div>
+    <!-- Add other doctor details as needed -->
   </div>
 </div>
+
+<!-- Error message -->
+<div *ngIf="errorMessage" class="error-message">
+  <p>{{ errorMessage }}</p>
+</div>
+

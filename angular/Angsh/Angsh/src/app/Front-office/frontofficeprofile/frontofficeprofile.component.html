@@ -15,17 +15,25 @@
         <a class="nav-link" id="logoutTab" href="">Logout</a>
     </li>
   </ul>
-  <div *ngIf="userDetails">
-    <h2>Front Office Profile</h2>
-    <div>
-      <p>Name: {{ userDetails.name }}</p>
-      <p>Email: {{ userDetails.email }}</p>
-      <!-- Add other front office user details as needed -->
+  <!-- Front Office Profile -->
+<div *ngIf="userDetails" class="front-office-container">
+  <h2 class="front-office-heading">Front Office Profile</h2>
+  <div class="front-office-details">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <p>{{ userDetails.name }}</p>
     </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <p>{{ userDetails.email }}</p>
+    </div>
+    <!-- Add other front office user details as needed -->
   </div>
-  
-  <div *ngIf="errorMessage">
-    <p>{{ errorMessage }}</p>
-  </div>
-  
+</div>
+
+<!-- Error message -->
+<div *ngIf="errorMessage" class="error-message">
+  <p>{{ errorMessage }}</p>
+</div>
+
   

@@ -1,13 +1,61 @@
-.navbar-light .navbar-nav .nav-link
-{
-    color: var(--secondary-color);
+/* Navbar Styles */
+.navbar-dark .navbar-nav .nav-link {
+    margin-left: 30px;
+    /* color: var(--primary-color); */
     font-weight: bold;
     font-size: large;
+    height: 80px;
 }
-.navbar-light .navbar-nav .nav-link.active-link
-{
+
+.navbar-light .navbar-nav .nav-link.active-link {
     color: rgb(22, 165, 158);
     text-decoration: underline;
     font-weight: bold;
     font-size: large;
+}
+
+/* Navbar Brand Styles */
+.navbar-light .navbar-brand {
+    color: var(--secondary-color);
+    font-weight: bold;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-light .navbar-brand svg {
+    margin-right: 10px;
+}
+
+/* Navbar Toggler Styles */
+.navbar-light .navbar-toggler {
+    border-color: var(--secondary-color);
+}
+
+.navbar-light .navbar-toggler-icon {
+    background-color: var(--secondary-color);
+}
+
+/* Navbar Dropdown Styles */
+.navbar-light .nav-item.dropdown:hover .nav-link {
+    color: rgb(22, 165, 158);
+}
+
+.navbar-light .nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.navbar-light .nav-item.dropdown .dropdown-menu {
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-light .nav-item.dropdown .dropdown-item {
+    color: var(--secondary-color);
+    font-weight: bold;
+    font-size: large;
+}
+
+.navbar-light .nav-item.dropdown .dropdown-item:hover {
+    background-color: rgba(22, 165, 158, 0.1);
 }

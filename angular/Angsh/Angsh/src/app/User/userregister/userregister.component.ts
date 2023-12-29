@@ -32,7 +32,7 @@ export class UserregisterComponent {
     if (this.name) {
       if (this.checkMail(this.email)) {
         if (this.password.length >= 5) {
-          this.http.post('http://localhost:1111/newuser', data).subscribe(
+          this.http.post('http://localhost:1111/user', data).subscribe(
             (response) => {
               console.log(response);
               this.router.navigate(['/userlogin']);

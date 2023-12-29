@@ -64,7 +64,7 @@ app.post('/getEmail', async (req, res) => {
     }
   });
 
-  //create user
+  //create user  --------------imp register pat
 app.post('/user', async (req, res) => {
 const userData = req.body;
     
@@ -325,7 +325,7 @@ console.log(MedicineName);
 app.get('/Official', async (req, res) => {
     
     try {
-      const datas = await OfficialtModel.find(); // get all
+      const datas = await OfficialModel.find(); // get all
       // Send the data as JSON response
       console.log(datas);
       if (datas) {
@@ -346,7 +346,7 @@ app.post('/officialEmail/', async (req, res) => {
   const userEmail = req.body.email;
     console.log(userEmail);
     try {
-    const datas = await OfficialtModel.findOne({ email: userEmail }); 
+    const datas = await OfficialModel.findOne({ email: userEmail }); 
     console.log(datas);
 
       // Send the data as JSON response
@@ -366,7 +366,7 @@ app.post('/newofficial', async (req, res) => {
 const newofficial = req.body;
     console.log(newofficial);
     try {
-    const datas = await OfficialtModel.create(newofficial)
+    const datas = await OfficialModel.create(newofficial)
 
       // Send the data as JSON response
       if (datas) {
@@ -429,7 +429,7 @@ app.put('/updateUser', async (req, res) => {
 
   try {
     
-    const datas = await OfficialtModel.findOneAndUpdate(
+    const datas = await OfficialModel.findOneAndUpdate(
         { email: userEmail },
         { $set: updatedData },
         { new: true }
@@ -509,7 +509,7 @@ app.put('/frontofficeupdate', async (req, res) => {
   }
 
   try {
-    const data = await OfficialtModel.findOne({ email: frontofficeEmail });
+    const data = await OfficialModel.findOne({ email: frontofficeEmail });
 
     if (!data) {
       return res.status(404).json({ error: 'Doctor not found' });
@@ -590,7 +590,7 @@ app.post('/pharmacistlogin', async (req, res) => {
   }
 });
 
-//User Login
+//User Login ----------imp
 
 app.post('/userlogin', async (req, res) => {
   try {
@@ -612,7 +612,7 @@ app.post('/userlogin', async (req, res) => {
 app.post('/frontofflogin', async (req, res) => {
   try {
     const { email, password } = req.body;
-    const frontoffice = await OfficialtModel.findOne({ email });
+    const frontoffice = await OfficialModel.findOne({ email });
 
     if (!frontoffice || frontoffice.password !== password) {
       return res.status(401).json({ message: 'Invalid credentials' });
