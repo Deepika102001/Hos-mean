@@ -1,0 +1,13 @@
+<div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+  
+  <div *ngIf="!errorMessage">
+    <h2>Doctor Details</h2>
+    <div *ngIf="doctorDetails">
+      <p>Name: {{ doctorDetails.name }}</p>
+      <p>Email: {{ doctorDetails.email }}</p>
+      <!-- Display other doctor details as needed -->
+    </div>
+  </div>
+  

@@ -1,0 +1,26 @@
+<ul class="nav nav-tabs" id="myTabs">
+    <li class="nav-item">
+      <a class="nav-link" id="pharmamedicine" data-toggle="tab" href="pharmamedicine">Medicine</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" id="pharmaprofile" data-toggle="tab" href="pharmacistprofile">Profile</a>
+      </li>
+    <li class="nav-item">
+      <a class="nav-link" id="logoutLink" href="#">Logout</a>
+    </li>
+  </ul>
+  
+  
+  <div *ngIf="pharmacistDetails">
+    <h2>Pharmacist Profile</h2>
+    <div>
+      <p>Name: {{ pharmacistDetails.name }}</p>
+      <p>Email: {{ pharmacistDetails.email }}</p>
+      <!-- Add other pharmacist details as needed -->
+    </div>
+  </div>
+  
+  <div *ngIf="errorMessage">
+    <p>{{ errorMessage }}</p>
+  </div>
+  

@@ -30,6 +30,10 @@ import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './about/about.component';
+import { DoctorProfileComponent } from './Doctor/doctorprofile/doctorprofile.component';
+import { UserprofileComponent } from './User/userprofile/userprofile.component';
+import { PharmacistprofileComponent } from './Pharmacist/pharmacistprofile/pharmacistprofile.component';
+import { FrontofficeprofileComponent } from './Front-office/frontofficeprofile/frontofficeprofile.component';
 
 
 const appRoutes: Routes = [						
@@ -54,7 +58,11 @@ const appRoutes: Routes = [
   { path: 'usermedicine', component:UsermedicineComponent  },
   { path: 'pharmamedicine', component: PharmamedicineComponent  },
   { path: '', component:HomeComponent},
-  { path: 'about', component:AboutComponent}
+  { path: 'about', component:AboutComponent},
+  { path: 'doctorprofile', component:DoctorProfileComponent},
+  { path: 'userprofile', component:UserprofileComponent},
+  { path: 'pharmacistprofile', component:PharmacistprofileComponent},
+  { path: 'frontofficeprofile', component:FrontofficeprofileComponent}
 ]
 @NgModule({
   declarations: [
@@ -83,7 +91,10 @@ const appRoutes: Routes = [
     NavbarComponent,
     FooterComponent,
     AboutComponent,
-  
+    DoctorProfileComponent,
+    UserprofileComponent,
+    PharmacistprofileComponent,
+    FrontofficeprofileComponent  
 
     
   ],

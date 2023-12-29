@@ -1,0 +1,26 @@
+<ul class="nav nav-tabs" id="myTabs">
+  <li class="nav-item">
+      <a class="nav-link" id="userappointment" data-toggle="tab" href="userappointment">Appointment</a>
+  </li>
+  <li class="nav-item">
+      <a class="nav-link" id="usermedicine" data-toggle="tab" href="usermedicine">Medicine</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" id="userprofile" data-toggle="tab" href="userprofile">Profile</a>
+</li>
+  <li class="nav-item">
+      <a class="nav-link" id="" href="">Logout</a>
+  </li>
+</ul>
+<div *ngIf="userDetails">
+  <h2>User Profile</h2>
+  <div>
+    <p>Name: {{ userDetails.name }}</p>
+    <p>Email: {{ userDetails.email }}</p>
+    <!-- Add other user details as needed -->
+  </div>
+</div>
+
+<div *ngIf="errorMessage">
+  <p>{{ errorMessage }}</p>
+</div>

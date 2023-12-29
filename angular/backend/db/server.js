@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const UserModel=require('./user')
 const AppoinmentModel=require('./Appointment')
 const MedicineModel=require('./Medicine')
-const OfficialtModel=require('./official')
+const OfficialModel=require('./official')
 const DoctorModel=require('./doctor')
 const PharmacistModel=require('./pharmacist')
 
@@ -619,6 +619,72 @@ app.post('/frontofflogin', async (req, res) => {
     }
 
     res.status(200).json({ message: 'Login successful', frontoffice });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+
+// Endpoint to get doctor details by email
+app.get('/getDoctorByEmail/:email', async (req, res) => {
+  try {
+    const email = req.params.email;
+    const doctor = await DoctorModel.findOne({ email });
+
+    if (!doctor) {
+      return res.status(404).json({ message: 'Doctor not found' });
+    }
+
+    res.status(200).json({ message: 'Doctor details found', doctor });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+
+// Endpoint to get User details by email
+app.get('/getUserByEmail/:email', async (req, res) => {
+  try {
+    const email = req.params.email;
+    const user = await UserModel.findOne({ email });
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    res.status(200).json({ message: 'User details found', user });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+// Endpoint to get Pharmacist details by email
+app.get('/getPharmacistByEmail/:email', async (req, res) => {
+  try {
+    const email = req.params.email;
+    const pharmacist = await PharmacistModel.findOne({ email });
+
+    if (!pharmacist) {
+      return res.status(404).json({ message: 'Pharmacist not found' });
+    }
+
+    res.status(200).json({ message: 'Pharmacist details found', pharmacist });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+// Endpoint to get FrontOffice details by email
+app.get('/getFrontOfficeUserByEmail/:email', async (req, res) => {
+  try {
+    const email = req.params.email;
+    const official = await OfficialModel.findOne({ email });
+
+    if (!official) {
+      return res.status(404).json({ message: 'Frontoffice not found' });
+    }
+
+    res.status(200).json({ message: 'Frontoffice details found', official });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

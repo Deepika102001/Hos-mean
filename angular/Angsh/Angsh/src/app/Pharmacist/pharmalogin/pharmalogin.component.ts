@@ -53,6 +53,9 @@ export class PharmaloginComponent {
 
   call(): void {
     if (this.email === this.userdetails.email && this.password === this.userdetails.password) {
+      // Store email in session storage upon successful login
+      sessionStorage.setItem('loggedInUserEmail', this.email);
+
       this.router.navigate(['/pharmamedicine']);
     } else {
       this.handleError('Invalid email or password');

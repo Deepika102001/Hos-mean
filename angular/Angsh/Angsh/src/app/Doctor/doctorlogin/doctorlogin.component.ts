@@ -31,8 +31,14 @@ export class DoctorLoginComponent {
         const response = await this.http.post<any>('http://localhost:1111/doctorlogin', data).toPromise();
         this.userdetails = response.doctor; // Update according to your response structure
 
-        // Check if userdetails are populated after successful login
-        if (this.userdetails && this.userdetails.email === this.email && this.userdetails.password === this.password) {
+        if (
+          this.userdetails &&
+          this.userdetails.email === this.email &&
+          this.userdetails.password === this.password
+        ) {
+          // Store email in session storage upon successful login
+          sessionStorage.setItem('loggedInUserEmail', this.email);
+
           this.router.navigate(['/docappointment']);
         } else {
           this.handleError('Invalid email or password');

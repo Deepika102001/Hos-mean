@@ -45,13 +45,16 @@ export class LoginComponent {
         console.error('Error during login:', error);
         this.handleError('An error occurred during login');
       }
-    } else {'word with at least 5 characters';
+    } else {
+      this.handleError('Enter a valid email address and a password with at least 5 characters');
     }
   }
 
   call(): void {
-      this.handleError('Enter a valid email address and a pass')
     if (this.email === this.userdetails.email && this.password === this.userdetails.password) {
+      // Store email in session storage upon successful login
+      sessionStorage.setItem('loggedInUserEmail', this.email);
+
       this.router.navigate(['/fapprove']);
     } else {
       this.handleError('Invalid email or password');
