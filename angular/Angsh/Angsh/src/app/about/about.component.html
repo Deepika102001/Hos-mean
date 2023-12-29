@@ -1,1 +1,218 @@
+<html>
+    <style>
+        /* Navbar Styles */
+.navbar-dark .navbar-nav .nav-link {
+    margin-left: 30px;
+    /* color: var(--primary-color); */
+    font-weight: bold;
+    font-size: large;
+    height: 80px;
+}
 
+.navbar-light .navbar-nav .nav-link.active-link {
+    color: rgb(22, 165, 158);
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: large;
+}
+
+/* Navbar Brand Styles */
+.navbar-light .navbar-brand {
+    color: var(--secondary-color);
+    font-weight: bold;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-light .navbar-brand svg {
+    margin-right: 10px;
+}
+
+/* Navbar Toggler Styles */
+.navbar-light .navbar-toggler {
+    border-color: var(--secondary-color);
+}
+
+.navbar-light .navbar-toggler-icon {
+    background-color: var(--secondary-color);
+}
+
+/* Navbar Dropdown Styles */
+.navbar-light .nav-item.dropdown:hover .nav-link {
+    color: rgb(22, 165, 158);
+}
+
+.navbar-light .nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.navbar-light .nav-item.dropdown .dropdown-menu {
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-light .nav-item.dropdown .dropdown-item {
+    color: var(--secondary-color);
+    font-weight: bold;
+    font-size: large;
+}
+
+.navbar-light .nav-item.dropdown .dropdown-item:hover {
+    background-color: rgba(22, 165, 158, 0.1);
+}
+
+    </style>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="82"
+          height="52"
+          fill="currentColor"
+          class="bi bi-amd"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="m.334 0 4.358 4.359h7.15v7.15l4.358 4.358V0H.334ZM.2 9.72l4.487-4.488v6.281h6.28L6.48 16H.2V9.72Z"
+          />
+        </svg>
+        <span class="fw-bold fs-4">&nbsp; MEDZONE</span>
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              routerLink=""
+              routerLinkActive="active-link"
+              [routerLinkActiveOptions]="{ exact: true }"
+              >Home</a
+            >
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="doctorDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Doctor
+            </a>
+            <div class="dropdown-menu" aria-labelledby="doctorDropdown">
+              <a class="dropdown-item" routerLink="doctorlogin">Login</a>
+              <a class="dropdown-item" routerLink="doctorregister"
+                >Registration</a
+              >
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="patientDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Patient
+            </a>
+            <div class="dropdown-menu" aria-labelledby="patientDropdown">
+              <a class="dropdown-item" routerLink="userlogin">Login</a>
+              <a class="dropdown-item" routerLink="userregister"
+                >Registration</a
+              >
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="frontofficeDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Front-Office Executive
+            </a>
+            <div class="dropdown-menu" aria-labelledby="frontofficeDropdown">
+              <a class="dropdown-item" routerLink="flogin">Login</a>
+              <a class="dropdown-item" routerLink="fregister">Registration</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="pharmacistDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Pharmacist
+            </a>
+            <div class="dropdown-menu" aria-labelledby="pharmacistDropdown">
+              <a class="dropdown-item" routerLink="pharmalogin">Login</a>
+              <a class="dropdown-item" routerLink="pharmaregister"
+                >Registration</a
+              >
+            </div>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              routerLink="about"
+              routerLinkActive="active-link"
+              >About</a
+            >
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <body>
+  </body>
+<section class="about-section">
+    <div class="about-container">
+      <div class="about-content">
+        <h2>About MedZone Hospital</h2>
+        <p>
+          MedZone Hospital is dedicated to providing exceptional healthcare services to our patients. With a team of skilled
+          professionals and state-of-the-art facilities, we aim to ensure the well-being and recovery of every individual
+          who walks through our doors.
+        </p>
+        <p>
+          Our commitment to excellence, compassionate care, and innovative treatments sets us apart. We prioritize patient
+          satisfaction and strive to maintain the highest standards in healthcare delivery.
+        </p>
+        <p>
+          At MedZone Hospital, we believe in a patient-centric approach, offering comprehensive medical solutions and
+          personalized care across various specialties. Your health and comfort are our top priorities.
+        </p>
+      </div>
+      <div class="about-image">
+        <!-- Placeholder image or hospital-related image -->
+        <img src="https://via.placeholder.com/400" alt="Hospital Image">
+      </div>
+    </div>
+  </section>
+  

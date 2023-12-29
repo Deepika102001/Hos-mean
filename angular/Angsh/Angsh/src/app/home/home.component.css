@@ -4,7 +4,16 @@
     color: #333;
     text-align: center;
     padding-top: 50px;
+   
   }
+  .main {
+    background-image: url('https://wallpaperaccess.com/full/1282794.jpg');
+    background-size: cover; /* Cover the entire container */
+    background-position: center; /* Center the image */
+    height: 100vh; /* Adjust the height as needed */
+    /* Additional styles for positioning or other properties */
+  }
+  
   
   header {
     margin-bottom: 50px;
@@ -13,7 +22,8 @@
   header h1 {
     font-size: 3rem;
     margin-bottom: 10px;
-    color: rgb(0, 119, 255);
+    color: rgb(0, 0, 0);
+    
   }
   
   /* Features section styles */
@@ -32,6 +42,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     cursor: pointer;
+    backdrop-filter: blur(30px);
     
   }
   
