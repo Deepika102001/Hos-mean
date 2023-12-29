@@ -1,0 +1,29 @@
+
+
+<div class="login-container">
+  <div class="login-form">
+
+    <div class="form">
+<div class="lcontainer">
+    <div class="login">
+      <h1>REGISTER</h1>
+  
+      <p>Name</p>
+      <input type="text" class="form-control" [(ngModel)]="name" placeholder="Enter name" />
+  
+      <p>Email</p>
+      <input type="email" class="form-control" [(ngModel)]="email" placeholder="Enter email" />
+  
+      <p>Password</p>
+      <input type="password" class="form-control"  [(ngModel)]="password" placeholder="Enter Password" />
+      <br>
+      <div class="div1">
+        <button class="save" (click)="save()">Register</button><br>
+        <p>Already a user? <a routerLink="/doctorlogin">Click Here</a></p>
+      </div>
+      <p *ngIf="err" class="error">{{ err }}</p>
+    </div>
+  </div>
+  </div>
+</div>
+</div>

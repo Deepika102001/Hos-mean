@@ -1,0 +1,45 @@
+<ul class="nav nav-tabs" id="myTabs">
+  <li class="nav-item">
+      <a class="nav-link " id="fapprove" data-toggle="tab" href="fapprove">Appprove Patient</a>
+  </li>
+  <li class="nav-item">
+      <a class="nav-link" id="fbook" data-toggle="tab" href="fbook">Book an Appointment</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" id="viewall" data-toggle="tab" href="viewall">Patient List</a>
+</li>
+  <li class="nav-item">
+      <a class="nav-link" id="logoutTab" href="">Logout</a>
+  </li>
+</ul>
+
+
+<!-- <input class="search" placeholder="search" [(ngModel)]="search" (ngModelChange)="searchChange()" /> -->
+
+<ng-container *ngIf="datas.length > 0; else noData">
+  <table>
+    <thead>
+      <tr>
+        <th align="left">appointmentId</th>
+        <th align="left">doctorName</th>
+        <th align="left">patientName</th>
+        <th align="left">description</th>
+        <th align="left">status</th>
+      </tr>
+    </thead>
+    <tbody>
+     
+      <tr *ngFor="let row of approvedList">
+        <td align="left">{{ row.appointmentId }}</td>
+        <td align="left">{{ row.doctorName }}</td>
+        <td align="left">{{ row.patientName }}</td>
+        <td align="left">{{ row.description }}</td>
+        <td align="left">Approved</td>
+      </tr>
+    </tbody>
+  </table>
+</ng-container>
+
+<ng-template #noData>
+  <p>No data available.</p>
+</ng-template> 

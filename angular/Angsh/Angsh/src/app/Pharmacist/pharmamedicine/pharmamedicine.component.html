@@ -1,0 +1,72 @@
+<body>
+
+<ul class="nav nav-tabs" id="myTabs">
+  <li class="nav-item">
+    <a class="nav-link active" id="pharmamedicine" data-toggle="tab" href="pharmamedicine">Medicine</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="logoutLink" href="#">Logout</a>
+  </li>
+</ul>
+
+<!-- <div class="search-container">
+  <input class="search" placeholder="Search" [(ngModel)]="search" />
+  
+</div> -->
+
+<div class="table-container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Medicine Name</th>
+        <th scope="col">Dosage</th>
+        <th scope="col">Price</th>
+        <th scope="col">GST</th>
+        <th scope="col">Discount</th>
+        <th scope="col">Final Price</th>
+        <th (click)="addMethod()"><button  class="add-button">Add</button></th>
+      </tr>
+    </thead>
+    <tbody *ngIf="isShowForm">
+      <tr [formGroup]="medicineForm">
+        <th scope="row"><input type="text" id="medicineName" formControlName="medicineName" /></th>
+        <td><input type="text" formControlName="dosage" /></td>
+        <td> <input type="number" formControlName="price" (input)="onPriceChange($event)"/></td>
+        <td><input type="number" formControlName="gst"  value="18" readonly/></td>
+        <td> <input type="number" formControlName="discount" value="10" readonly/></td>
+        <td> <input type="number" formControlName="finalPrice"  /></td>
+        <td (click)="onStore()">{{isEdit ? 'Edit':'Submit'}} </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+<br><br><br>
+<div class="table-container" *ngIf="isNewMedicineAdded">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Medicine Name</th>
+        <th scope="col">Dosage</th>
+        <th scope="col">Price</th>
+        <th scope="col">GST</th>
+        <th scope="col">Discount</th>
+        <th scope="col">Final Price</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody >
+      <tr *ngFor="let data of medicine">
+        <td>{{data?.medicineName}}</td>
+        <td>{{data?.dosage}}</td>
+        <td>{{data?.price}}</td>
+        <td>{{data?.gst}}</td>
+        <td>{{data?.discount}}</td>
+        <td>{{data?.finalPrice}}</td>
+        <th (click)="onEdit(data)">Edit</th>
+        <th (click)=onDelete(data.medicineName)>Delete</th>
+      </tr>
+    </tbody>
+  </table>
+</div>

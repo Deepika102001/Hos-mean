@@ -1,0 +1,32 @@
+
+<ul class="nav nav-tabs" id="myTabs">
+  <li class="nav-item">
+      <a class="nav-link active" id="userappointment" data-toggle="tab" href="userappointment">Appointment</a>
+  </li>
+  <li class="nav-item">
+      <a class="nav-link" id="usermedicine" data-toggle="tab" href="usermedicine">Medicine</a>
+  </li>
+  <li class="nav-item">
+      <a class="nav-link" id="" href="">Logout</a>
+  </li>
+</ul>
+<div class="login-container">
+  <div class="login-form">
+
+    <div class="form">
+      <h1>BOOK</h1>
+  
+      <p>Name</p>
+      <input type="text" [(ngModel)]="name" placeholder="Enter Name" />
+      
+      <p>Doctor Name</p>
+      <input type="text" [(ngModel)]="Doctor" placeholder="Enter Name" />
+  
+      <p>Description</p>
+      <input type="text" [(ngModel)]="Dis" class="description" placeholder="Enter Your Health Issue" />
+  
+      <button (click)="save()">Register</button>
+      <p *ngIf="err" class="eror">{{ err }}</p>
+    </div>
+  </div>
+  </div>

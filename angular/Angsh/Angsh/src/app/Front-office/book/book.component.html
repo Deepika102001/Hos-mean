@@ -1,0 +1,35 @@
+
+<ul class="nav nav-tabs" id="myTabs">
+  <li class="nav-item">
+      <a class="nav-link " id="fapprove" data-toggle="tab" href="fapprove">Appprove Patient</a>
+  </li>
+  <li class="nav-item">
+      <a class="nav-link active" id="fbook" data-toggle="tab" href="fbook">Book an Appointment</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="viewall" data-toggle="tab" href="viewall">Patient List</a>
+</li>
+  <li class="nav-item">
+      <a class="nav-link" id="logoutTab" href="">Logout</a>
+  </li>
+</ul>
+<div class="login-container">
+  <div class="login-form">
+
+    <div class="form">
+    <h1>BOOK</h1>
+
+    <p>Name</p>
+    <input type="text" [(ngModel)]="name" placeholder="Enter Name" />
+    
+    <p>Doctor Name</p>
+    <input type="text" [(ngModel)]="Doctor" placeholder="Enter Name" />
+
+    <p>Description</p>
+    <input type="text" [(ngModel)]="Dis" class="description" placeholder="Enter Your Health Issue"/>
+
+    <button (click)="save()">Register</button>
+    <p *ngIf="err" class="eror">{{ err }}</p>
+  </div>
+</div>
+</div>

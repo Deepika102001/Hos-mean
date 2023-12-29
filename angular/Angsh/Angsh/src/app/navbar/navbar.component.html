@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-amd" viewBox="0 0 16 16">
+          <path d="m.334 0 4.358 4.359h7.15v7.15l4.358 4.358V0H.334ZM.2 9.72l4.487-4.488v6.281h6.28L6.48 16H.2V9.72Z"/>
+        </svg>
+        <span class="fw-bold fs-4">&nbsp; Hospital</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="doctorDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Doctor
+            </a>
+            <div class="dropdown-menu" aria-labelledby="doctorDropdown">
+              <a class="dropdown-item" routerLink="doctorlogin">Login</a>
+              <a class="dropdown-item" routerLink="doctorregister">Registration</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="patientDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Patient
+            </a>
+            <div class="dropdown-menu" aria-labelledby="patientDropdown">
+              <a class="dropdown-item" routerLink="userlogin">Login</a>
+              <a class="dropdown-item" routerLink="userregister">Registration</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="frontofficeDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Front-Office Executive
+            </a>
+            <div class="dropdown-menu" aria-labelledby="frontofficeDropdown">
+              <a class="dropdown-item" routerLink="flogin">Login</a>
+              <a class="dropdown-item" routerLink="fregister">Registration</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="pharmacistDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Pharmacist
+            </a>
+            <div class="dropdown-menu" aria-labelledby="pharmacistDropdown">
+              <a class="dropdown-item" routerLink="pharmalogin">Login</a>
+              <a class="dropdown-item" routerLink="pharmaregister">Registration</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="about" routerLinkActive="active-link">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="contact" routerLinkActive="active-link">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  

@@ -1,0 +1,17 @@
+<div class="login-container">
+  <div class="login-form">
+
+    <div class="form">
+      <p>Email</p>
+      <input type="email" [(ngModel)]="email" placeholder="Enter email" />
+  
+      <p>New Password</p>
+      <input type="password" [(ngModel)]="password" placeholder="Enter Password" />
+  
+      <button (click)="save()">Save the details</button>
+      
+      <p *ngIf="err" class="error">{{ err }}</p>
+    </div>
+  </div>
+  </div>
+  

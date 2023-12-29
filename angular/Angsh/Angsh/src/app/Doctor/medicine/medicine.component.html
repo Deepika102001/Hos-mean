@@ -1,0 +1,46 @@
+<body>
+<ul class="nav nav-tabs" id="myTabs">
+  <li class="nav-item">
+      <a class="nav-link " id="docappointment" data-toggle="tab" href="docappointment">Appointment</a>
+  </li>
+  <li class="nav-item">
+      <a class="nav-link active" id="docmedicine" data-toggle="tab" href="docmedicine">Medicine</a>
+  </li>
+  <li class="nav-item">
+      <a class="nav-link" id="" href="">Logout</a>
+  </li>
+</ul>
+<div class="table-container">
+     
+    <div class="d1">
+      <input
+        type="text"
+        placeholder="Search..."
+        [(ngModel)]="search"
+      />
+    </div>
+  
+    <table class="medicine-table">
+      <thead>
+        <tr>
+          <th>medicineName</th>
+          <th>dosage</th>
+          <th>price</th>
+          <th>gst</th>
+          <th>discount</th>
+          <th>Finalprice</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of filteredData">
+          <td>{{ row.medicineName }}</td>
+          <td>{{ row.dosage }}</td>
+          <td>{{ row.price }}</td>
+          <td>{{ row.gst }}</td>
+          <td>{{ row.discount }}</td>
+          <td>{{ row.price + row.gst - row.discount }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>

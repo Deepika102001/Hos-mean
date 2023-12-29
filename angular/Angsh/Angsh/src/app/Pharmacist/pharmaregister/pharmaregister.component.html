@@ -1,0 +1,25 @@
+<!-- doctor-register.component.html -->
+
+<div class="login-container">
+  <div class="login-form">
+
+    <div class="form">
+      <h1>REGISTER</h1>
+  
+      <p>Name</p>
+      <input type="text" [(ngModel)]="name" placeholder="Enter name" />
+  
+      <p>Email</p>
+      <input type="email" [(ngModel)]="email" placeholder="Enter email" />
+  
+      <p>Password</p>
+      <input type="password" [(ngModel)]="password" placeholder="Enter Password" />
+  
+      <div class="div1">
+        <button class="save" (click)="save()">Register</button>
+        <p>Already a user? <a routerLink="/pharmalogin">Click Here</a></p>
+      </div>
+      <p *ngIf="err" class="error">{{ err }}</p>
+    </div>
+  </div>
+  </div>

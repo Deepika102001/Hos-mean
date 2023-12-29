@@ -1,0 +1,38 @@
+<body>
+<ul class="nav nav-tabs" id="myTabs">
+  <li class="nav-item">
+      <a class="nav-link active" id="docappointment" data-toggle="tab" href="docappointment">Appointment</a>
+  </li>
+  <li class="nav-item">
+      <a class="nav-link" id="docmedicine" data-toggle="tab" href="docmedicine">Medicine</a>
+  </li>
+  <li class="nav-item">
+      <a class="nav-link" id="" href="">Logout</a>
+  </li>
+</ul>
+
+<div class="table-container">
+  <table class="medicine-table">
+    <thead>
+      <tr>
+        <th>appointmentId</th>
+        <th>doctorName</th>
+        <th>patientName</th>
+        <th>description</th>
+        <th>status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let row of datas">
+        <tr *ngIf="row.status">
+          <td>{{ row.appointmentId }}</td>
+          <td>{{ row.doctorName }}</td>
+          <td>{{ row.patientName }}</td>
+          <td>{{ row.description }}</td>
+          <td>{{ row.status ? 'Approved' : 'Pending' }}</td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>
+</body>
