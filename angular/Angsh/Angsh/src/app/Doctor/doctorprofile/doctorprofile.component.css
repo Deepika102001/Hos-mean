@@ -1,0 +1,35 @@
+/* Global styles or styles specific to doctor-profile component */
+
+/* Navigation styles */
+ 
+  
+  /* Error message styles */
+  .error-message {
+    margin: 20px 0;
+    padding: 10px;
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+  }
+  
+  /* Doctor details container styles */
+  .doctor-details-container {
+    padding: 20px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 60px;
+    width: 50%;
+    margin-left: 25%;
+  }
+  
+  /* Doctor details styles */
+  .doctor-details {
+    margin-top: 10px;
+  }
+  
+  .doctor-details p {
+    margin-bottom: 5px;
+  }
+  
