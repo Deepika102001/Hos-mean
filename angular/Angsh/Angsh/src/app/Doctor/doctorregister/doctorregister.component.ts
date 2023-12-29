@@ -33,7 +33,7 @@ export class DoctorregisterComponent {
     if (this.name) {
       if (this.checkMail(this.email)) {
         if (this.password.length >= 5) {
-          this.http.post('http://localhost:1111/newofficial', data).subscribe(
+          this.http.post('http://localhost:1111/newdoctor', data).subscribe(
             (response) => {
               console.log(response);
               this.router.navigate(['/doctorlogin']);

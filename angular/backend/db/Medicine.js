@@ -6,7 +6,8 @@ dosage:String,
 medicineName:String,
 price: Number,
 gst : Number,
-discount:Number
+discount:Number,
+finalPrice:Number
 
   // Other fields as needed
 },{ collection: 'Medicine' });

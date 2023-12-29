@@ -5,6 +5,10 @@ const UserModel=require('./user')
 const AppoinmentModel=require('./Appointment')
 const MedicineModel=require('./Medicine')
 const OfficialtModel=require('./official')
+const DoctorModel=require('./doctor')
+const PharmacistModel=require('./pharmacist')
+
+
 const cors =require("cors")
 
 const app = express();
@@ -41,7 +45,7 @@ app.get('/users', async (req, res) => {
   
 
 // get user by email
-app.post('/userEmail', async (req, res) => {
+app.post('/getEmail', async (req, res) => {
   const userEmail = req.body.email;
   console.log(userEmail);
     
@@ -61,7 +65,7 @@ app.post('/userEmail', async (req, res) => {
   });
 
   //create user
-app.post('/createuser', async (req, res) => {
+app.post('/user', async (req, res) => {
 const userData = req.body;
     
     try {
@@ -376,6 +380,44 @@ const newofficial = req.body;
     }
   });
 
+  //Doctor Register
+  app.post('/newdoctor', async (req, res) => {
+    const newdoctor = req.body;
+        console.log(newdoctor);
+        try {
+        const datas = await DoctorModel.create(newdoctor)
+    
+          // Send the data as JSON response
+          if (datas) {
+            res.json(datas);
+          } else {
+            res.status(404).json({ error: 'User not found' });
+          }
+        } catch (error) {
+          console.error('Error fetching data from MongoDB:', error);
+          res.status(500).json({ error: 'Internal Server Error' });
+        }
+      });
+    // Pharmacist Register
+    app.post('/newpharmacist', async (req, res) => {
+      const newpharmacist = req.body;
+          console.log(newpharmacist);
+          try {
+          const datas = await PharmacistModel.create(newpharmacist)
+      
+            // Send the data as JSON response
+            if (datas) {
+              res.json(datas);
+            } else {
+              res.status(404).json({ error: 'User not found' });
+            }
+          } catch (error) {
+            console.error('Error fetching data from MongoDB:', error);
+            res.status(500).json({ error: 'Internal Server Error' });
+          }
+        });
+        
+
 // update user details by email
 app.put('/updateUser', async (req, res) => {
   const userEmail = req.body.email;
@@ -405,45 +447,179 @@ app.put('/updateUser', async (req, res) => {
   }
 });
 
-// update user Password by email
-app.put('/updatePassword', async (req, res) => {
-  const userEmail = req.body.email;
-  const updatePassword=req.body.password;
-  console.log(userEmail,updatePassword);
+// update Doctor Password by email
+app.put('/doctorupdate', async (req, res) => {
+  const doctorEmail = req.body.email;
+  const doctorUpdatePassword = req.body.password; // Corrected variable name
 
-  if (!userEmail) {
-    return res.status(400).json({ error: 'email is required in the request body' });
+  if (!doctorEmail || !doctorUpdatePassword) {
+    return res.status(400).json({ error: 'Email and password are required in the request body' });
   }
 
   try {
-    const data = await OfficialtModel.findOne({ email: userEmail }); 
-    
-    console.log(data);
-    const updatedData={
-        name: data.name,
-        email: data.email,
-        password: updatePassword,
-        role: data.role
+    const data = await DoctorModel.findOne({ email: doctorEmail });
+
+    if (!data) {
+      return res.status(404).json({ error: 'Doctor not found' });
     }
 
-    // Send the data as JSON response
-    if (data) {
-        const datas = await OfficialtModel.findOneAndUpdate(
-            { email: userEmail },
-            { $set: updatedData },
-            { new: true }
-          )
-      res.json(datas);
-    } else {
-      res.status(404).json({ error: 'User not found' });
-    }
+    data.password = doctorUpdatePassword; // Update the password field
+
+    await data.save(); // Save the updated data
+
+    return res.status(200).json({ message: 'Password updated successfully' });
   } catch (error) {
-    console.error('Error fetching data from MongoDB:', error);
-    res.status(500).json({ error: 'Internal Server Error' });
+    return res.status(500).json({ error: 'Internal server error' });
   }
 });
+
+// update user Password by email
+app.put('/userupdate', async (req, res) => {
+  const userEmail = req.body.email;
+  const userUpdatePassword = req.body.password; // Corrected variable name
+
+  if (!userEmail || !userUpdatePassword) {
+    return res.status(400).json({ error: 'Email and password are required in the request body' });
+  }
+
+  try {
+    const data = await UserModel.findOne({ email: userEmail });
+
+    if (!data) {
+      return res.status(404).json({ error: 'Doctor not found' });
+    }
+
+    data.password = userUpdatePassword; // Update the password field
+
+    await data.save(); // Save the updated data
+
+    return res.status(200).json({ message: 'Password updated successfully' });
+  } catch (error) {
+    return res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// update frontoffice Password by email
+app.put('/frontofficeupdate', async (req, res) => {
+  const frontofficeEmail = req.body.email;
+  const frontofficeUpdatePassword = req.body.password; // Corrected variable name
+
+  if (!frontofficeEmail || !frontofficeUpdatePassword) {
+    return res.status(400).json({ error: 'Email and password are required in the request body' });
+  }
+
+  try {
+    const data = await OfficialtModel.findOne({ email: frontofficeEmail });
+
+    if (!data) {
+      return res.status(404).json({ error: 'Doctor not found' });
+    }
+
+    data.password = frontofficeUpdatePassword; // Update the password field
+
+    await data.save(); // Save the updated data
+
+    return res.status(200).json({ message: 'Password updated successfully' });
+  } catch (error) {
+    return res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// update Pharmacist Password by email
+app.put('/pharmacistupdate', async (req, res) => {
+  const pharmacistEmail = req.body.email;
+  const pharmacistUpdatePassword = req.body.password; // Corrected variable name
+
+  if (!pharmacistEmail || !pharmacistUpdatePassword) {
+    return res.status(400).json({ error: 'Email and password are required in the request body' });
+  }
+
+  try {
+    const data = await PharmacistModel.findOne({ email: pharmacistEmail });
+
+    if (!data) {
+      return res.status(404).json({ error: 'Doctor not found' });
+    }
+
+    data.password = pharmacistUpdatePassword; // Update the password field
+
+    await data.save(); // Save the updated data
+
+    return res.status(200).json({ message: 'Password updated successfully' });
+  } catch (error) {
+    return res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 
 // Start the server
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
+});
+
+
+
+// Endpoint for doctor login
+app.post('/doctorlogin', async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    const doctor = await DoctorModel.findOne({ email });
+
+    if (!doctor || doctor.password !== password) {
+      return res.status(401).json({ message: 'Invalid credentials' });
+    }
+
+    res.status(200).json({ message: 'Login successful', doctor });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+// Endpoint for  pharmacistlogin
+app.post('/pharmacistlogin', async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    const pharmacist = await PharmacistModel.findOne({ email });
+
+    if (!pharmacist || pharmacist.password !== password) {
+      return res.status(401).json({ message: 'Invalid credentials' });
+    }
+
+    res.status(200).json({ message: 'Login successful', pharmacist });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+//User Login
+
+app.post('/userlogin', async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    const user = await UserModel.findOne({ email });
+
+    if (!user || user.password !== password) {
+      return res.status(401).json({ message: 'Invalid credentials' });
+    }
+
+    res.status(200).json({ message: 'Login successful', user });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+//Frontoffice login
+
+app.post('/frontofflogin', async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    const frontoffice = await OfficialtModel.findOne({ email });
+
+    if (!frontoffice || frontoffice.password !== password) {
+      return res.status(401).json({ message: 'Invalid credentials' });
+    }
+
+    res.status(200).json({ message: 'Login successful', frontoffice });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 });

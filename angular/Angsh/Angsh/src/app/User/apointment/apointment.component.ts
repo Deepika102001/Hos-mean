@@ -36,6 +36,7 @@ export class ApointmentComponent {
               this.http.post('http://localhost:1111/newAppoinment', data).subscribe(
                 () => {
                   console.log('Data saved successfully');
+                  alert('Data saved successfully')
                   this.router.navigate(['/userappointment']);
                 },
                 error => {

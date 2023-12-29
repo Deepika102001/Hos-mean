@@ -31,13 +31,14 @@ export class ForgetpassComponent {
 
     if (this.checkMail(this.email)) {
       if (this.password.length >= 5) {
-        this.http.put('http://localhost:1111/updatePassword', data).subscribe(
-          (response) => {
+        this.http.put('http://localhost:1111/doctorupdate', data).subscribe(
+          (response: any) => {
             console.log(response);
             this.router.navigate(['/doctorlogin']);
           },
-          (error) => {
-            console.error('Error:', error);
+          (error: any) => {
+            console.error('Error:', error.error.error || 'Server error');
+            this.handleError(error.error.error || 'Server error');
           }
         );
       } else {
@@ -52,5 +53,4 @@ export class ForgetpassComponent {
     this.err = message;
     setTimeout(() => this.hideSpam(), 1000);
   }
-
 }

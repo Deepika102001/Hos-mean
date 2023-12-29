@@ -32,7 +32,7 @@ export class UserforgetpassComponent {
 
     if (this.checkMail(this.email)) {
       if (this.password.length >= 5) {
-        this.http.put('http://localhost:1111/updatePassword', data).subscribe(
+        this.http.put('http://localhost:1111/userupdate', data).subscribe(
           (response) => {
             console.log(response);
             this.router.navigate(['/userlogin']);

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
@@ -11,72 +11,51 @@ export class UserloginComponent {
 
   email: string = '';
   password: string = '';
-  role: string = '';
   error: string | null = null;
-  userdetails: any = { email: '', password: '', role: '' };
+  userdetails: any = { email: '', password: '' };
 
   constructor(private router: Router, private http: HttpClient) {}
-
-  ngOnInit() {
-    // Angular equivalent of useEffect
-  }
 
   checkMail(data: string): boolean {
     const emailRegex: RegExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(data);
   }
 
-  call(): void {
-    const data = {
-      email: this.email,
-      password: this.password,
-      role: 'User'
-    };
-
-    if (data.role === this.userdetails.role) {
-      if (data.email === this.userdetails.email) {
-        if (data.password === this.userdetails.password) {
-          this.router.navigate(['/userappointment']);
-        } else {
-          this.handleError('INVALID PASSWORD');
-        }
-      } else {
-        this.handleError('INVALID EMAIL');
-      }
-    } else {
-      if (data.role !== 'User') {
-        this.handleError('');
-      }
-    }
-  }
-
   async login(): Promise<void> {
     const data = {
       email: this.email,
-      password: this.password,
-      role: 'User'
+      password: this.password
     };
 
-    if (this.checkMail(this.email)) {
-      if (this.password.length >= 5) {
-        try {
-          const response = await this.http.post<any>('http://localhost:1111/officialEmail/', data).toPromise();
-          this.role = response.data.role;
+    if (this.checkMail(this.email) && this.password.length >= 5) {
+      try {
+        const response = await this.http.post<any>('http://localhost:1111/userlogin', data).toPromise();
+        
+        // Assuming the response structure contains 'user' object
+        if (response && response.user) {
           this.userdetails = {
-            email: response.data.email,
-            password: response.data.password,
-            role: response.data.role
+            email: response.user.email,
+            password: response.user.password
           };
+
           this.call();
-        } catch (error) {
-          this.handleError('INVALID USER');
-          console.error('Error:', error);
+        } else {
+          this.handleError('Invalid response from server');
         }
-      } else {
-        this.handleError('Password must be at least 5 characters long');
+      } catch (error) {
+        console.error('Error during login:', error);
+        this.handleError('An error occurred during login');
       }
     } else {
-      this.handleError('Enter a valid email address');
+      this.handleError('Enter a valid email address and a password with at least 5 characters');
+    }
+  }
+
+  call(): void {
+    if (this.email === this.userdetails.email && this.password === this.userdetails.password) {
+      this.router.navigate(['/userappointment']);
+    } else {
+      this.handleError('Invalid email or password');
     }
   }
 
@@ -86,6 +65,6 @@ export class UserloginComponent {
 
   handleError(message: string): void {
     this.error = message;
-    setTimeout(() => this.hideError(), 1000);
+    setTimeout(() => this.hideError(), 3000);
   }
 }

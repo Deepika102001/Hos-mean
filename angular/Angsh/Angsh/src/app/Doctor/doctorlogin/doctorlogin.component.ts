@@ -1,81 +1,48 @@
-
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+
 @Component({
   selector: 'app-doctorlogin',
   templateUrl: './doctorlogin.component.html',
   styleUrls: ['./doctorlogin.component.css']
 })
-export class DoctorLoginComponent implements OnInit {
+export class DoctorLoginComponent {
   email: string = '';
   password: string = '';
-  role: string = '';
   error: string | null = null;
-  userdetails: any = { email: '', password: '', role: '' };
+  userdetails: any = { email: '', password: '' };
 
   constructor(private router: Router, private http: HttpClient) {}
-
-  ngOnInit() {
-    // Angular equivalent of useEffect
-  }
 
   checkMail(data: string): boolean {
     const emailRegex: RegExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(data);
   }
 
-  call(): void {
-    const data = {
-      email: this.email,
-      password: this.password,
-      role: 'Doctor'
-    };
-
-    if (data.role === this.userdetails.role) {
-      if (data.email === this.userdetails.email) {
-        if (data.password === this.userdetails.password) {
-          this.router.navigate(['/docappointment']);
-        } else {
-          this.handleError('INVALID PASSWORD');
-        }
-      } else {
-        this.handleError('INVALID EMAIL');
-      }
-    } else {
-      if (data.role !== 'Doctor') {
-        this.handleError('');
-      }
-    }
-  }
-
   async login(): Promise<void> {
     const data = {
       email: this.email,
-      password: this.password,
-      role: 'Doctor'
+      password: this.password
     };
 
-    if (this.checkMail(this.email)) {
-      if (this.password.length >= 5) {
-        try {
-          const response = await this.http.post<any>('http://localhost:1111/officialEmail/', data).toPromise();
-          this.role = response.data.role;
-          this.userdetails = {
-            email: response.data.email,
-            password: response.data.password,
-            role: response.data.role
-          };
-          this.call();
-        } catch (error) {
-          this.handleError('');
-          console.error('Error:', error);
+    if (this.checkMail(this.email) && this.password.length >= 5) {
+      try {
+        const response = await this.http.post<any>('http://localhost:1111/doctorlogin', data).toPromise();
+        this.userdetails = response.doctor; // Update according to your response structure
+
+        // Check if userdetails are populated after successful login
+        if (this.userdetails && this.userdetails.email === this.email && this.userdetails.password === this.password) {
+          this.router.navigate(['/docappointment']);
+        } else {
+          this.handleError('Invalid email or password');
         }
-      } else {
-        this.handleError('Password must be at least 5 characters long');
+      } catch (error) {
+        this.handleError('An error occurred during login');
+        console.error('Error:', error);
       }
     } else {
-      this.handleError('Enter a valid email address');
+      this.handleError('Enter a valid email address and a password with at least 5 characters');
     }
   }
 
@@ -85,6 +52,6 @@ export class DoctorLoginComponent implements OnInit {
 
   handleError(message: string): void {
     this.error = message;
-    setTimeout(() => this.hideError(), 1000);
+    setTimeout(() => this.hideError(), 3000);
   }
 }
