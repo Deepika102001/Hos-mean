@@ -60,4 +60,6 @@ export class DoctorLoginComponent {
     this.error = message;
     setTimeout(() => this.hideError(), 3000);
   }
+  
 }
+

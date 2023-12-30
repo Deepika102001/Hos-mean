@@ -1,201 +1,25 @@
-/* .lcontainer{
-    height: 100vh;
-    width: 100%;
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto; */
-    /* margin-top: 2.5cm; */
-/* }
-.ReCAPTCHA{
-margin-top: 10px;
-}
-.login{
-    height: 14cm;
-    width: 9.5cm;
-    background-color: rgba(77, 227, 222, 0.505);
-    padding-left: 20px; */
-    /* padding-top: 10px; */
-    /* border-radius:10px;
-}
-input{
-    outline: none;
-    height: 22px;
-    width: 6cm;
-    padding-left: 10px;
-    background: transparent;
-    border: 1px black solid;
-}
-button{
-    border: none;
-    background-color: rgba(0, 0, 255, 0.695);
-    color: white;
-    
-}
-.div1{
-    height: 2cm;
-}
-.fpass{
-    font-size: small;
-    color: rgb(87, 82, 82);
-} */
-/* h1{
-    margin: auto;
-} */
-/* .save{
-    width: 6.5cm;
-    margin: 0;
-    margin-top: 1cm;
-} */
 
-/* employer-registration.component.css */
-/* *{
-    font-weight: bold;
-  
-}
-body{
-    background-image: url('https://img.freepik.com/free-photo/young-handsome-physician-medical-robe-with-stethoscope_1303-17818.jpg?w=996&t=st=1703741286~exp=1703741886~hmac=722cf454194381d0c2b606e476292bb3e3ece037c486089425c6c7bd4a7d8354');
-    
-    background-size: cover;
-    
-}
-.container {
- 
-    display: flex;
-    align-items: center;
-    margin-top: -70px;
-    justify-content: center;
-    height: 100vh;
-  }
-  
-  .form {
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 20px;
-    border-radius: 10px;
-    width: 1300px;
-  }
-  
-  .form {
-    display: flex;
-    flex-direction: column;
-    height: 70vh;
-  }
-  
-  p {
-    margin-bottom: 5px;
-    text-align: left;
-  }
-  
-  input {
-    padding: 8px;
-    margin-bottom: 15px;
-  }
-  
-  button {
-    background-color: rgb(66, 66, 226);;
-    color: white;
-    padding: 10px;
-    width:15%;
-    margin-left: 13px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: rgb(66, 66, 226);
-  }
-  a{
-    color: blue;
-  }
-  .mt-5, .my-5 {
-    margin-top: rem!important;
-  }
-  .footer
-  {
-    overflow: hidden;
-    position: sticky;
-    top: 100%;
-    background-color:#000;
-    padding: 20px 10px;
-  }
-  
-  
-  i 
-  {
-    padding: 0px 10px;
-  }
-   */
-   /* .lcontainer{
-    height: 100vh;
-    width: 100%;
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto; */
-    /* margin-top: 2.5cm; */
-/* }
-.ReCAPTCHA{
-margin-top: 10px;
-}
-.login{
-    height: 12cm;
-    width: 9.5cm;
-    background-color: rgba(77, 227, 222, 0.505);
-    padding-left: 20px; */
-    /* padding-top: 10px; */
-    /* border-radius:10px;
-}
-input{
-    outline: none;
-    height: 22px;
-    width: 6cm;
-    padding-left: 10px;
-    background: transparent;
-    border: 1px black solid;
-}
-button{
-    border: none;
-    background-color: rgba(0, 0, 255, 0.695);
-    color: white;
-    
-}
-.div1{
-    height: 2cm;
-}
-.fpass{
-    font-size: small;
-    color: rgb(87, 82, 82);
-} */
-/* h1{
-    margin: auto;
-} */
-/* .save{
-    width: 6.5cm;
-    margin: 0;
-    margin-top: 1cm;
-} */
-
-
-
-
-/* login.component.css */
 *{
     font-weight: bold;
 }
 .login-container {
-
     background-image: url('https://img.freepik.com/free-photo/young-handsome-physician-medical-robe-with-stethoscope_1303-17818.jpg?w=996&t=st=1703741286~exp=1703741886~hmac=722cf454194381d0c2b606e476292bb3e3ece037c486089425c6c7bd4a7d8354');
-
     background-size: cover;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    
+
   }
+
+  .container {
+    height: 60vh;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+  
+  }
+
   h1{
     font-weight: bold;
   }
@@ -206,14 +30,8 @@ button{
     border-radius: 10px;
     text-align: center;
     width: 500px;
-    margin-bottom: 150px;
-    margin-right: 550px;
-    margin-bottom: 50px;
-  }
-  
-  .form {
-    display: flex;
-    flex-direction: column;
+    margin-bottom: 10%;
+ 
   }
   
   label {
@@ -222,13 +40,6 @@ button{
     font-size:medium;
   }
   
-  /* input {
-    padding: 8px;
-    margin-bottom: 22px;
-   
-    margin-left: 50px;
-    margin-right: 50px;
-  } */
   
   button {
     background-color:rgb(66, 66, 226);
@@ -258,7 +69,7 @@ button{
 }
 p{
     text-align: left;
-    font-size: 20px;
+    font-size: 15px;
 }
 
 i 

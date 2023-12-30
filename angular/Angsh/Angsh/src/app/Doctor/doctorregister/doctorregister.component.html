@@ -1,55 +1,43 @@
 <div class="login-container">
-  <div class="login-form">
 
-    <div class="form">
-      <a
-      class="nav-link"
-      routerLink=""
-      routerLinkActive="active-link"
-      [routerLinkActiveOptions]="{ exact: true }"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="32"
-        height="32"
-        fill="currentColor"
-        class="bi bi-house-door-fill"
-        viewBox="0 0 16 16"
-      >
-        <path
-          d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5"
-        />
-      </svg>
-    </a>
-<div class="lcontainer">
-    <div class="login">
-      <h1>REGISTER</h1>
-  
-      <p>Name</p>
-      <input type="text" class="form-control" [(ngModel)]="user.name" placeholder="Enter name" />
-      
-      <p>Email</p>
-      <input type="email" class="form-control" [(ngModel)]="user.email" placeholder="Enter email" />
-      
-      <p>Password</p>
-      <input type="password" class="form-control" [(ngModel)]="user.password" placeholder="Enter Password" />
+  <div class="main">
+    <div class="login-form">
 
-      <p>Age</p>
-      <input type="number" class="form-control" [(ngModel)]="user.age" placeholder="Enter age" />
+      <div class="form">
+        <a class="nav-link" routerLink="" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+            class="bi bi-house-door-fill" viewBox="0 0 16 16">
+            <path
+              d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5" />
+          </svg>
+        </a>
+        <div class="lcontainer">
+          <div class="container">
+            <h1>REGISTER</h1>
 
-      <p>Contact</p>
-      <input type="text" class="form-control" [(ngModel)]="user.contact" placeholder="Enter contact" />
-      <p>Role</p>
-    <input type="text" class="form-control" [(ngModel)]="user.Role" placeholder="Enter role" />
+            <p>Name</p>
+            <input type="text" class="form-control" [(ngModel)]="user.name" placeholder="Enter name" />
 
-      <br>
+            <p>Email</p>
+            <input type="email" class="form-control" [(ngModel)]="user.email" placeholder="Enter email" />
 
-      <div class="div1">
-        <button class="save" (click)="save()">Register</button><br>
-        <p>Already a user? <a routerLink="/doctorlogin">Click Here</a></p>
+            <p>Password</p>
+            <input type="password" class="form-control" [(ngModel)]="user.password" placeholder="Enter Password" />
+
+            <p>Age</p>
+            <input type="number" class="form-control" [(ngModel)]="user.age" placeholder="Enter age" />
+            <p>Contact</p>
+            <input type="text" class="form-control" [(ngModel)]="user.contact" placeholder="Enter contact" />
+            <p>Role</p>
+            <input type="text" class="form-control" [(ngModel)]="user.Role" placeholder="Enter role" />
+<br>
+            <div class="div1">
+              <button class="save" (click)="save()">Register</button><br>
+              <p>Already a user? <a routerLink="/doctorlogin">Click Here</a></p>
+            </div>
+            <p *ngIf="err" class="error">{{ err }}</p>
+          </div>
+        </div>
       </div>
-      <p *ngIf="err" class="error">{{ err }}</p>
     </div>
   </div>
-</div>
-</div>

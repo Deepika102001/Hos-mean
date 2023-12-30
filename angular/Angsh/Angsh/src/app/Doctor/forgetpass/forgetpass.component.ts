@@ -47,6 +47,7 @@ export class ForgetpassComponent {
     } else {
       this.handleError('Enter a proper email');
     }
+    alert(' password changed succesfully')
   }
 
   handleError(message: string): void {
