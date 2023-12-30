@@ -27,6 +27,8 @@ export class PharmamedicineComponent {
 
 
   //-- gst and discount logiccc -----------
+  
+
   onPriceChange(event: any) {
     let value = parseFloat(event.target.value);
   
