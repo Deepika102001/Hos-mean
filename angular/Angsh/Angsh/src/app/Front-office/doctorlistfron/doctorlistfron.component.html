@@ -1,11 +1,11 @@
 <ul class="nav nav-tabs" id="myTabs">
     <li class="nav-item">
-      <a class="nav-link" id="doctorlist" data-toggle="tab" href="doctorlistfront"
+      <a class="nav-link active" id="doctorlist" data-toggle="tab" href="doctorlistfront"
         >Doctors List</a
       >
     </li>
     <li class="nav-item">
-      <a class="nav-link active" id="fapprove" data-toggle="tab" href="fapprove"
+      <a class="nav-link " id="fapprove" data-toggle="tab" href="fapprove"
         >Appprove Patient</a
       >
     </li>
@@ -43,7 +43,6 @@
         [(ngModel)]="searchTerm"
         (input)="handleSearch()"
       />
-      <button (click)="handleSearch()">Search</button>
     </div>
     <div class="card-container">
       <div

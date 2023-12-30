@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pharmamedicine',
@@ -15,6 +16,7 @@ export class PharmamedicineComponent {
   isEdit:boolean = false
 
   medicineForm!: FormGroup;
+  router: any;
 
   constructor(private formBuilder: FormBuilder,private http: HttpClient) {}
   onSubmit() {
@@ -23,11 +25,23 @@ export class PharmamedicineComponent {
 
   deleted: number = -1;
 
-
-  onPriceChange(event:any){
-    let value= event.target.value
-    let currentPrice = value - (value * 10 / 100);
-    this.medicineForm.controls['finalPrice'].setValue(currentPrice)
+  onPriceChange(event: any) {
+    let value = parseFloat(event.target.value);
+  
+    // Increase price by 18%
+    let increasedPrice = value * 1.18;
+  
+    // Decrease the increased price by 10%
+    let finalPrice = increasedPrice * 0.9;
+  
+    // Logging the results
+    console.log('Increased Price by 18%:', increasedPrice);
+    console.log('Final Price after decreasing by 10%:', finalPrice);
+    
+  
+    // Set the final price to the form control
+    this.medicineForm.controls['finalPrice'].setValue(finalPrice);
+   
   }
  
   ngOnInit(): void {
@@ -68,6 +82,8 @@ export class PharmamedicineComponent {
 
       this.fetchMedicineData()
       this.isNewMedicineAdded = true
+      alert(' added 10% discount ')
+      this.router.navigate(['/pharmamedicine']);
     }
     
   }
@@ -108,5 +124,6 @@ export class PharmamedicineComponent {
 
   addMethod(): void {
     this.isShowForm = true
+    
   }
 }

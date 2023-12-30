@@ -15,6 +15,10 @@ export class BookComponent implements OnInit {
   Dis: string = '';
   err: string | null = '';
   
+  
+
+
+
   constructor(private router: Router, private http: HttpClient) { }
 
   ngOnInit(): void {}

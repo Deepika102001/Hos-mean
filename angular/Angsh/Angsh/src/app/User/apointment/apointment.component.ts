@@ -37,7 +37,7 @@ export class ApointmentComponent {
                 () => {
                   console.log('Data saved successfully');
                   alert('Data saved successfully')
-                  this.router.navigate(['/userappointment']);
+                  this.router.navigate(['/doctorlist']);
                 },
                 error => {
                   console.error('Error:', error);

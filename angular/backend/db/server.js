@@ -18,7 +18,7 @@ app.use(express.json()); // Middleware to parse JSON request bodies
 app.use(cors()); // Middleware 
 
 // MongoDB connection URI
-const mongoURI = 'mongodb://localhost:27017/MEAN-hosp'; // Change this to your actual database name
+const mongoURI = 'mongodb://localhost:27017/hospital'; // Change this to your actual database name
 
 // Connect to MongoDB using Mongoose
 mongoose.connect(mongoURI, {});
@@ -552,11 +552,13 @@ app.put('/pharmacistupdate', async (req, res) => {
 });
 
 
-// Start the server
+// ------------------ Start the server ----------------
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
 
+
+// --------------------login code --------------------
 
 
 // Endpoint for doctor login
@@ -624,6 +626,7 @@ app.post('/frontofflogin', async (req, res) => {
   }
 });
 
+// --------------------- profile details code --------------------
 
 // Endpoint to get doctor details by email
 app.get('/getDoctorByEmail/:email', async (req, res) => {
