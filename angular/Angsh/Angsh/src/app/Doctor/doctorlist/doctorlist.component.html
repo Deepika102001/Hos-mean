@@ -1,0 +1,70 @@
+<ul class="nav nav-tabs" id="myTabs">
+    <li class="nav-item">
+      <a class="nav-link" id="doctorlist" data-toggle="tab" href="doctorlist"
+        >Doctors List</a
+      >
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        id="userappointment"
+        data-toggle="tab"
+        href="userappointment"
+        >Appointment</a
+      >
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link active"
+        id="usermedicine"
+        data-toggle="tab"
+        href="usermedicine"
+        >Medicine</a
+      >
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="userprofile" data-toggle="tab" href="userprofile"
+        >Profile</a
+      >
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" id="" href="">Logout</a>
+    </li>
+  </ul>
+
+<div class="page-container">
+    <h1 class="title">Doctors List</h1>
+    <div class="search-container">
+      <input
+        type="text"
+        placeholder="Search by Doctor Name"
+        [(ngModel)]="searchTerm"
+        (input)="handleSearch()"
+      />
+      <button (click)="handleSearch()">Search</button>
+    </div>
+    <div class="card-container">
+      <div
+        *ngFor="let doctor of filteredDoctors.length > 0 ? filteredDoctors : indianDoctors"
+        class="card"
+        [ngClass]="{ 'hovered': hovered === doctor.id }"
+        (mouseenter)="setHovered(doctor.id)"
+        (mouseleave)="setHovered(null)"
+      >
+        <img [src]="doctor.profilePhoto" alt="{{ 'Dr. ' + doctor.name }}" />
+        <h2>{{ doctor.name }}</h2>
+        <p>Specialty: {{ doctor.specialty }}</p>
+        <p>Visitation Days: {{ doctor.visitationDays }}</p>
+        <p>Visitation Hours: {{ doctor.visitationHours }}</p>
+        <p>Consultation Fee: {{ doctor.consultationFee }}</p>
+        <a routerLink="/userappointment" style="text-decoration: none;">
+          <button (mouseenter)="buttonHovered=true" (mouseleave)="buttonHovered=false"
+            [ngStyle]="{ 'background-color': buttonHovered ? '#0056b3' : '#007bff' }">
+            Book
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+  

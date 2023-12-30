@@ -34,6 +34,9 @@ import { DoctorProfileComponent } from './Doctor/doctorprofile/doctorprofile.com
 import { UserprofileComponent } from './User/userprofile/userprofile.component';
 import { PharmacistprofileComponent } from './Pharmacist/pharmacistprofile/pharmacistprofile.component';
 import { FrontofficeprofileComponent } from './Front-office/frontofficeprofile/frontofficeprofile.component';
+import { DoctorlistComponent } from './Doctor/doctorlist/doctorlist.component';
+import { DoctorlistfronComponent } from './Front-office/doctorlistfron/doctorlistfron.component';
+
 
 
 const appRoutes: Routes = [						
@@ -62,7 +65,9 @@ const appRoutes: Routes = [
   { path: 'doctorprofile', component:DoctorProfileComponent},
   { path: 'userprofile', component:UserprofileComponent},
   { path: 'pharmacistprofile', component:PharmacistprofileComponent},
-  { path: 'frontofficeprofile', component:FrontofficeprofileComponent}
+  { path: 'frontofficeprofile', component:FrontofficeprofileComponent},
+  { path: 'doctorlist', component:DoctorlistComponent},
+  { path: 'doctorlistfront', component:DoctorlistfronComponent},
 ]
 @NgModule({
   declarations: [
@@ -94,7 +99,9 @@ const appRoutes: Routes = [
     DoctorProfileComponent,
     UserprofileComponent,
     PharmacistprofileComponent,
-    FrontofficeprofileComponent  
+    FrontofficeprofileComponent,
+    DoctorlistComponent,
+    DoctorlistfronComponent  
 
     
   ],

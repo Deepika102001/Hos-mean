@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-doctorregister',
   templateUrl: './doctorregister.component.html',
@@ -10,9 +9,15 @@ import { Router } from '@angular/router';
 })
 export class DoctorregisterComponent {
 
-  name: string = '';
-  email: string = '';
-  password: string = '';
+  user = {
+    name: '',
+    email: '',
+    password: '',
+    age: null,
+    contact: '',
+    Role: ''
+  };
+
   err: string | null = null;
 
   constructor(private router: Router, private http: HttpClient) {}
@@ -24,24 +29,40 @@ export class DoctorregisterComponent {
 
   save(): void {
     const data = {
-      email: this.email,
-      name: this.name,
-      password: this.password,
-      role: 'Doctor'
+      email: this.user.email,
+      name: this.user.name,
+      password: this.user.password,
+      age: this.user.age,
+      contact: this.user.contact,
+      Role: this.user.Role
     };
 
-    if (this.name) {
-      if (this.checkMail(this.email)) {
-        if (this.password.length >= 5) {
-          this.http.post('http://localhost:1111/newdoctor', data).subscribe(
-            (response) => {
-              console.log(response);
-              this.router.navigate(['/doctorlogin']);
-            },
-            (error) => {
-              console.error('Error:', error);
+    if (this.user.name) {
+      if (this.checkMail(this.user.email)) {
+        if (this.user.password.length >= 5) {
+          if (this.user.age && this.user.age >= 18 && this.user.age <= 100) {
+            const contactRegex: RegExp = /^\d{10}$/;
+            if (contactRegex.test(this.user.contact)) {
+              if (this.user.Role) { // Validating if Role is not empty
+                // Rest of your logic
+                this.http.post('http://localhost:1111/newdoctor', data).subscribe(
+                  (response) => {
+                    console.log(response);
+                    this.router.navigate(['/doctorlogin']);
+                  },
+                  (error) => {
+                    console.error('Error:', error);
+                  }
+                );
+              } else {
+                this.handleError('Role is required');
+              }
+            } else {
+              this.handleError('Enter a valid 10-digit contact number');
             }
-          );
+          } else {
+            this.handleError('Enter a valid age between 18 and 100');
+          }
         } else {
           this.handleError('Enter a password with at least 5 characters');
         }

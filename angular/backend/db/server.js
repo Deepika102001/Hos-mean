@@ -18,7 +18,7 @@ app.use(express.json()); // Middleware to parse JSON request bodies
 app.use(cors()); // Middleware 
 
 // MongoDB connection URI
-const mongoURI = 'mongodb://localhost:27017/hospital'; // Change this to your actual database name
+const mongoURI = 'mongodb://localhost:27017/MEAN-hosp'; // Change this to your actual database name
 
 // Connect to MongoDB using Mongoose
 mongoose.connect(mongoURI, {});
