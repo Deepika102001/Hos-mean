@@ -28,13 +28,19 @@
   
       <p>Name</p>
       <input type="text" [(ngModel)]="name" placeholder="Enter name" />
-  
+
       <p>Email</p>
       <input type="email" [(ngModel)]="email" placeholder="Enter email" />
-  
+
       <p>Password</p>
       <input type="password" [(ngModel)]="password" placeholder="Enter Password" />
-  
+
+      <p>Age</p>
+      <input type="number" [(ngModel)]="age" placeholder="Enter age" />
+
+      <p>Contact</p>
+      <input type="tel" [(ngModel)]="contact" placeholder="Enter contact number" />
+
       <div class="div1">
         <button class="save" (click)="save()">Register</button>
         <p>Already a user? <a routerLink="/flogin">Click Here</a></p>
@@ -42,4 +48,4 @@
       <p *ngIf="err" class="error">{{ err }}</p>
     </div>
   </div>
-  </div>
+</div>

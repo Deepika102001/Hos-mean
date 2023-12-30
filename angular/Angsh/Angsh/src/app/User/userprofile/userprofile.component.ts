@@ -19,14 +19,14 @@ export class UserprofileComponent implements OnInit {
 
     if (this.userEmail) {
       // Get user details using the stored email
-      this.getUserDetails();
+      this.getUserDetails(this.userEmail); // Pass the userEmail to the function
     } else {
       this.errorMessage = 'No logged-in user found';
     }
   }
 
-  getUserDetails(): void {
-    this.http.get(`http://localhost:1111/getUserByEmail/${this.userEmail}`)
+  getUserDetails(email: string): void {
+    this.http.get(`http://localhost:1111/getUserByEmail/${email}`)
       .subscribe(
         (response: any) => {
           this.userDetails = response.user;

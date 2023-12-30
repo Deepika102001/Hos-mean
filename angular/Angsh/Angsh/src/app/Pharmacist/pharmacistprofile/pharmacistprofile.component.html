@@ -10,7 +10,6 @@
     </li>
   </ul>
   
-  
   <div *ngIf="pharmacistDetails" class="profile-container">
     <h2 style="text-align: center;">Pharmacist Profile</h2>
     <div class="profile-details">
@@ -22,6 +21,15 @@
         <label for="email">Email:</label>
         <p>{{ pharmacistDetails.email }}</p>
       </div>
+      <div class="form-group">
+        <label for="age">Age:</label>
+        <p>{{ pharmacistDetails.age }}</p>
+      </div>
+      <div class="form-group">
+        <label for="contact">Contact:</label>
+        <p>{{ pharmacistDetails.contact }}</p>
+      </div>
+      
       <!-- Add other pharmacist details as needed -->
     </div>
   </div>

@@ -8,10 +8,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-
   name: string = '';
   email: string = '';
   password: string = '';
+  age: number | null = null;
+  gender: string = '';
+  contact: string = '';
   err: string | null = null;
 
   constructor(private router: Router, private http: HttpClient) {}
@@ -22,34 +24,52 @@ export class RegisterComponent {
   }
 
   save(): void {
+    if (!this.name.trim()) {
+      this.handleError('Please enter your name');
+      return;
+    }
+
+    if (!this.checkMail(this.email)) {
+      this.handleError('Enter a valid email address');
+      return;
+    }
+
+    if (this.password.length < 5) {
+      this.handleError('Password must be at least 5 characters long');
+      return;
+    }
+
+    if (this.age !== null && (isNaN(this.age) || this.age < 18 || this.age > 100)) {
+      this.handleError('Enter a valid age between 18 and 100');
+      return;
+    }
+
+    
+
+    const contactRegex: RegExp = /^\d{10}$/;
+    if (this.contact && !contactRegex.test(this.contact)) {
+      this.handleError('Enter a valid 10-digit contact number');
+      return;
+    }
+
     const data = {
       email: this.email,
       name: this.name,
       password: this.password,
+      age: this.age,
+      contact: this.contact,
       role: 'Front-Office'
     };
 
-    if (this.name) {
-      if (this.checkMail(this.email)) {
-        if (this.password.length >= 5) {
-          this.http.post('http://localhost:1111/newofficial', data).subscribe(
-            (response) => {
-              console.log(response);
-              this.router.navigate(['/flogin']);
-            },
-            (error) => {
-              console.error('Error:', error);
-            }
-          );
-        } else {
-          this.handleError('Enter a password with at least 5 characters');
-        }
-      } else {
-        this.handleError('Enter a proper email');
+    this.http.post('http://localhost:1111/newofficial', data).subscribe(
+      (response) => {
+        console.log(response);
+        this.router.navigate(['/flogin']);
+      },
+      (error) => {
+        console.error('Error:', error);
       }
-    } else {
-      this.handleError('Enter a name');
-    }
+    );
   }
 
   hideSpam(): void {

@@ -19,14 +19,14 @@ export class PharmacistprofileComponent implements OnInit {
 
     if (this.pharmacistEmail) {
       // Get pharmacist details using the stored email
-      this.getPharmacistDetails();
+      this.getPharmacistDetails(this.pharmacistEmail); // Pass the email to the function
     } else {
       this.errorMessage = 'No logged-in pharmacist found';
     }
   }
 
-  getPharmacistDetails(): void {
-    this.http.get(`http://localhost:1111/getPharmacistByEmail/${this.pharmacistEmail}`)
+  getPharmacistDetails(email: string): void {
+    this.http.get(`http://localhost:1111/getPharmacistByEmail/${email}`)
       .subscribe(
         (response: any) => {
           this.pharmacistDetails = response.pharmacist;

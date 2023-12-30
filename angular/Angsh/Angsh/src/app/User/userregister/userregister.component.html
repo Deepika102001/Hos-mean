@@ -32,6 +32,20 @@
   
       <p>Password</p>
       <input type="password" [(ngModel)]="password" placeholder="Enter Password" />
+
+      <p>Age</p>
+      <input type="number" [(ngModel)]="age" placeholder="Enter age" />
+
+      <p>Gender</p>
+<select [(ngModel)]="gender" required>
+  <option value="" disabled selected>Select Gender</option>
+  <option value="male">Male</option>
+  <option value="female">Female</option>
+  <option value="other">Other</option>
+</select>
+
+      <p>Contact</p>
+      <input type="tel" [(ngModel)]="contact" placeholder="Enter contact number" />
   
       <div class="div1">
         <button class="save" (click)="save()">Register</button>

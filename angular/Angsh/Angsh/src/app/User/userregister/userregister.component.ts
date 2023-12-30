@@ -8,10 +8,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./userregister.component.css']
 })
 export class UserregisterComponent {
-
   name: string = '';
   email: string = '';
   password: string = '';
+  age: number | null = null;
+  gender: string = '';
+  contact: number | null = null;
   err: string | null = null;
 
   constructor(private router: Router, private http: HttpClient) {}
@@ -22,34 +24,56 @@ export class UserregisterComponent {
   }
 
   save(): void {
+    if (!this.name.trim()) {
+      this.handleError('Please enter your name');
+      return;
+    }
+
+    if (!this.checkMail(this.email)) {
+      this.handleError('Enter a valid email address');
+      return;
+    }
+
+    if (this.password.length < 5) {
+      this.handleError('Password must be at least 5 characters long');
+      return;
+    }
+
+    if (!this.age || this.age < 18 || this.age > 100) {
+      this.handleError('Enter a valid age between 18 and 100');
+      return;
+    }
+
+    if (!['male', 'female', 'other'].includes(this.gender)) {
+      this.handleError('Select a valid gender');
+      return;
+    }
+
+    if (!this.contact || !(/^\d{10}$/).test(this.contact.toString())) {
+      this.handleError('Enter a valid 10-digit contact number');
+      return;
+    }
+
     const data = {
       email: this.email,
       name: this.name,
       password: this.password,
+      age: this.age,
+      gender: this.gender,
+      contact: this.contact,
       role: 'User'
     };
 
-    if (this.name) {
-      if (this.checkMail(this.email)) {
-        if (this.password.length >= 5) {
-          this.http.post('http://localhost:1111/user', data).subscribe(
-            (response) => {
-              console.log(response);
-              this.router.navigate(['/userlogin']);
-            },
-            (error) => {
-              console.error('Error:', error);
-            }
-          );
-        } else {
-          this.handleError('Enter a password with at least 5 characters');
-        }
-      } else {
-        this.handleError('Enter a proper email');
+    // Assuming the backend endpoint is expecting this format of data
+    this.http.post('http://localhost:1111/user', data).subscribe(
+      (response) => {
+        console.log(response);
+        this.router.navigate(['/userlogin']);
+      },
+      (error) => {
+        console.error('Error:', error);
       }
-    } else {
-      this.handleError('Enter a name');
-    }
+    );
   }
 
   hideSpam(): void {
@@ -58,6 +82,6 @@ export class UserregisterComponent {
 
   handleError(message: string): void {
     this.err = message;
-    setTimeout(() => this.hideSpam(), 1000);
+    setTimeout(() => this.hideSpam(), 3000); // Display error for 3 seconds
   }
 }

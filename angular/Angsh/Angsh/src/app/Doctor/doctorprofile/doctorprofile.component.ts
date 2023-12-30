@@ -8,31 +8,30 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./doctorprofile.component.css']
 })
 export class DoctorProfileComponent implements OnInit {
-  doctorEmail: string | null = null;
-  doctorDetails: any = {};
+  doctorDetails: any = null;
   errorMessage: string | null = null;
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    // Retrieve email from session storage
-    this.doctorEmail = sessionStorage.getItem('loggedInUserEmail');
+    // Assuming doctor email is obtained from somewhere (e.g., session storage)
+    const loggedInUserEmail = sessionStorage.getItem('loggedInUserEmail');
 
-    if (this.doctorEmail) {
+    if (loggedInUserEmail) {
       // Get doctor details using the stored email
-      this.getDoctorDetails();
+      this.getDoctorDetails(loggedInUserEmail);
     } else {
       this.errorMessage = 'No logged-in user found';
     }
   }
 
-  getDoctorDetails(): void {
-    this.http.get(`http://localhost:1111/getDoctorByEmail/${this.doctorEmail}`)
+  getDoctorDetails(email: string): void {
+    this.http.get<any>(`http://localhost:1111/getDoctorByEmail/${email}`)
       .subscribe(
-        (response: any) => {
+        (response) => {
           this.doctorDetails = response.doctor;
         },
-        (error: any) => {
+        (error) => {
           this.errorMessage = error.error.message || 'Something went wrong.';
         }
       );
